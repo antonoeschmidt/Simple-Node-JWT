@@ -1,3 +1,4 @@
+const cors = require('cors');
 const express = require('express')
 const app = express()
 const crypto = require('crypto')
@@ -5,6 +6,8 @@ const jwt = require('jsonwebtoken')
 const { users } = require('./users.json')
 require('dotenv').config()
 
+app.use(cors());
+app.options('*', cors());
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
